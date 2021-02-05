@@ -140,8 +140,7 @@ abstract class CiprianoPage extends RastyPage{
 
 	public function getLinkRendirCaja( Caja $caja = null ){
 
-		if($caja==null)
-			$caja = CiprianoUIUtils::getCaja();
+
 
 		return LinkBuilder::getPageUrl( "RendirCaja", array("cajaOid"=>$caja->getOid())) ;
 
@@ -153,11 +152,16 @@ abstract class CiprianoPage extends RastyPage{
 
 	}
 
-	public function getLinkMovimientosBanco(){
+	public function getLinkMovimientosBanco(Cuenta $cuenta = null){
 
-		return LinkBuilder::getPageUrl( "MovimientosBanco") ;
+        if($cuenta==null)
+            $cuenta = 0;
+
+		return LinkBuilder::getPageUrl( "MovimientosBanco", array("cuentaOid"=>$cuenta->getOid())) ;
 
 	}
+
+
 
 
 	public function getLinkAdminHome(){

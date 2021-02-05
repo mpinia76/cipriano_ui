@@ -4,6 +4,8 @@ namespace Cipriano\UI\components\filter\model;
 
 use Cipriano\UI\components\filter\model\UICiprianoCriteria;
 
+use Cipriano\UI\service\UIServiceFactory;
+
 use Rasty\utils\RastyUtils;
 use Cipriano\Core\criteria\MovimientoCuentaCriteria;
 
@@ -29,6 +31,11 @@ class UIMovimientoCuentaCriteria extends UICiprianoCriteria{
 	public function __construct(){
 
 		parent::__construct();
+        $cuentaOid = RastyUtils::getParamGET("cuentaOid");
+
+        //obtenemos la vendedor
+        $cuenta = UIServiceFactory::getUICuentaService()->get($cuentaOid);
+        $this->setCuenta($cuenta);
 
 	}
 

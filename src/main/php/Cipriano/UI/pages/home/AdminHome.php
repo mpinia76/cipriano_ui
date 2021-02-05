@@ -7,7 +7,7 @@ use Cipriano\UI\components\filter\model\UIBancoCriteria;
 
 use Cipriano\UI\service\UIServiceFactory;
 
-
+use Cipriano\Core\utils\CiprianoUtils;
 
 use Cipriano\UI\utils\CiprianoUIUtils;
 
@@ -151,8 +151,16 @@ class AdminHome extends CiprianoPage{
 
 
 		$xtpl->assign("saldo_bancos", CiprianoUIUtils::formatMontoToView( UIServiceFactory::getUIBancoService()->getSaldoBancos() ) );
-		$xtpl->assign("linkMovimientosBanco", $this->getLinkMovimientosBanco());
-		$xtpl->assign("menu_josefina",'La Josefina' );
+		$xtpl->assign("linkMovimientosBanco", $this->getLinkMovimientosBanco(CiprianoUtils::getCuentaJosefina()));
+        $xtpl->assign("linkMovimientosJosefina", $this->getLinkMovimientosBanco(CiprianoUtils::getCuentaJosefina()));
+        $xtpl->assign("linkMovimientosMarias", $this->getLinkMovimientosBanco(CiprianoUtils::getCuentaMarias()));
+        $xtpl->assign("linkMovimientosCasa", $this->getLinkMovimientosBanco(CiprianoUtils::getCuentaCasa()));
+        $xtpl->assign("linkMovimientosCamion", $this->getLinkMovimientosBanco(CiprianoUtils::getCuentaCamion()));
+        $xtpl->assign("linkMovimientosOtra", $this->getLinkMovimientosBanco(CiprianoUtils::getCuentaOtra()));
+
+
+
+        $xtpl->assign("menu_josefina",'La Josefina' );
 		$uiCriteria = new UIBancoCriteria();
 		$uiCriteria->setNombre( 'La Josefina' );
 		$xtpl->assign("saldo_baproctate", CiprianoUIUtils::formatMontoToView( UIServiceFactory::getUIBancoService()->getSaldoBanco($uiCriteria) ) );
