@@ -1,0 +1,6 @@
+<rasty specificationClass="Cipriano\UI\layouts\CiprianoHomeMetroLayout" templateLocation="CiprianoHomeMetroLayout.htm">
+
+	<param name="menuGroups" value="menuGroups" />
+	<component id="footer" type="FooterCipriano">
+	</component>
+</rasty>

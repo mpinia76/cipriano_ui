@@ -1,0 +1,5 @@
+<rasty specificationClass="Cipriano\UI\layouts\CiprianoLoginMetroLayout" templateLocation="CiprianoLoginMetroLayout.htm">
+<component id="footer" type="FooterCipriano">
+	</component>
+
+</rasty>
