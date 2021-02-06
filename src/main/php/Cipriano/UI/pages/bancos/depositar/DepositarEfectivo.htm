@@ -28,16 +28,20 @@ function bancochange(){
 	<form class="cipriano_form" id="depositar_form" onsubmit="return validate('depositar_form');" action="{action}" method="POST">
 		<fieldset>
 		<legend>{legend}</legend>
+
+
+            <div class="item">
+                <label for="banco">{lbl_banco} *:</label>
+                <rasty id="banco" />
+            </div>
+
 			<div class="item">
 			    <label for="fechaHora">{lbl_fechaHora} *:</label>
 			    <rasty id="fechaHora" />
 			</div>
 
 
-			<div class="item">
-			    <label for="banco">{lbl_banco} *:</label>
-			    <rasty id="banco" />
-			</div>
+
 
 			<div class="item">
 			    <label for="montoDepositar">{lbl_montoDepositar} *:</label>
