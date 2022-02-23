@@ -35,6 +35,23 @@ class AdminHome extends CiprianoPage{
 	private $cuentaMarias;
 	private $cuentaCamion;
     private $cuentaOtra;
+	private $cuentaViajes;
+
+	/**
+	 * @return mixed
+	 */
+	public function getCuentaViajes()
+	{
+		return $this->cuentaViajes;
+	}
+
+	/**
+	 * @param mixed $cuentaViajes
+	 */
+	public function setCuentaViajes($cuentaViajes)
+	{
+		$this->cuentaViajes = $cuentaViajes;
+	}
 
     /**
      * @return mixed
@@ -58,6 +75,7 @@ class AdminHome extends CiprianoPage{
 		$this->setCuentaMarias( UIServiceFactory::getUIBancoService()->getCuentaMarias() );
 		$this->setCuentaCamion( UIServiceFactory::getUIBancoService()->getCuentaCamion() );
         $this->setCuentaOtra( UIServiceFactory::getUIBancoService()->getCuentaOtra() );
+		$this->setCuentaViajes( UIServiceFactory::getUIBancoService()->getCuentaViajes() );
 	}
 
 	public function getTitle(){
@@ -157,6 +175,7 @@ class AdminHome extends CiprianoPage{
         $xtpl->assign("linkMovimientosCasa", $this->getLinkMovimientosBanco(CiprianoUtils::getCuentaCasa()));
         $xtpl->assign("linkMovimientosCamion", $this->getLinkMovimientosBanco(CiprianoUtils::getCuentaCamion()));
         $xtpl->assign("linkMovimientosOtra", $this->getLinkMovimientosBanco(CiprianoUtils::getCuentaOtra()));
+		$xtpl->assign("linkMovimientosViajes", $this->getLinkMovimientosBanco(CiprianoUtils::getCuentaViajes()));
 
 
 
@@ -186,6 +205,12 @@ class AdminHome extends CiprianoPage{
         $uiCriteria = new UIBancoCriteria();
         $uiCriteria->setNombre( 'Otra' );
         $xtpl->assign("saldo_otra", CiprianoUIUtils::formatMontoToView( UIServiceFactory::getUIBancoService()->getSaldoBanco($uiCriteria) ) );
+
+		$xtpl->assign("menu_viajes",'Viajes con mercadería' );
+		$uiCriteria = new UIBancoCriteria();
+		$uiCriteria->setNombre( 'Viajes con mercadería' );
+		$xtpl->assign("saldo_viajes", CiprianoUIUtils::formatMontoToView( UIServiceFactory::getUIBancoService()->getSaldoBanco($uiCriteria) ) );
+
 
 
 	}

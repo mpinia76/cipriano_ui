@@ -150,6 +150,20 @@ class UIBancoService {
 
     }
 
+	public function getCuentaViajes(){
+
+		try {
+
+			return CiprianoUtils::getCuentaViajes();
+
+		} catch (\Exception $e) {
+
+			throw new RastyException($e->getMessage());
+
+		}
+
+	}
+
 
 	public function depositarEfectivo(Banco $banco, $monto, $observaciones, $fechaHora ){
 
