@@ -77,6 +77,11 @@
 
 	<component name="GastosAnio" location="components/stats/gastos" />
 
+	<component name="BalanceDia"   location="components/stats/balance"/>
+
+	<component name="BalanceMes"   location="components/stats/balance"/>
+	<component name="BalanceAnio"   location="components/stats/balance"/>
+
 	<!-- forms -->
 	<component name="ConceptoGastoForm"   location="components/form/conceptoGasto"/>
 	<component name="CajaForm"   location="components/form/caja"/>
@@ -101,10 +106,12 @@
 	<component name="BancoBox"   location="components/boxes/banco"/>
 	<component name="PagoBox"   location="components/boxes/pago"/>
 
-	<component name="BalanceDia"   location="components/stats/balance"/>
-	<component name="BalanceCajas"   location="components/stats/balance"/>
-	<component name="BalanceMes"   location="components/stats/balance"/>
-	<component name="BalanceAnio"   location="components/stats/balance"/>
+	<component name="BalanceDiaFilter"   location="components/filter/balance"/>
+	<component name="BalanceMesFilter"   location="components/filter/balance"/>
+	<component name="BalanceAnioFilter"   location="components/filter/balance"/>
+
+
+
 
 	<!-- layouts -->
 	<component name="CiprianoMetroLayout" location="layouts" />

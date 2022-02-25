@@ -80,7 +80,7 @@ class HeaderNav extends RastyComponent{
 			//$menuGroup->addMenuOption( $this->getMenuAgencia() );
 			//$menuGroups[] =  $this->getMenuInformes();
 
-			//$menuGroups[] =  $this->getMenuReportes();
+			$menuGroups[] =  $this->getMenuReportes();
 
 		}
 
@@ -288,11 +288,11 @@ public function getMenuAdmin(){
 		$menuGroupStats = new MenuGroup();
 		$menuGroupStats->setLabel( $this->localize( "menu.stats") );
 
-		$menuOption = new MenuOption();
+		/*$menuOption = new MenuOption();
 		$menuOption->setLabel( $this->localize( "menu.stats.reportes") );
 		$menuOption->setPageName( "Reportes" );
 		$menuOption->setIconClass( "icon-stats" );
-		$menuGroupStats->addMenuOption( $menuOption );
+		$menuGroupStats->addMenuOption( $menuOption );*/
 
 		$menuOption = new MenuOption();
 		$menuOption->setLabel( $this->localize( "menu.balances.dia") );

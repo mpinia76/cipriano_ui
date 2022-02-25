@@ -1,6 +1,7 @@
 <?php
 namespace Cipriano\UI\pages\balances;
 
+use Cipriano\UI\components\filter\model\UIMovimientoCuentaCriteria;
 use Cipriano\UI\pages\CiprianoPage;
 
 use Cipriano\UI\service\UIServiceFactory;
@@ -21,26 +22,21 @@ use Rasty\Menu\menu\model\MenuOption;
 
 class BalanceMes extends CiprianoPage{
 
-	private $fecha;
-
 	public function __construct(){
 
 
-		$this->fecha = new \DateTime();
+		//$this->fecha = new \DateTime();
 
 	}
 
-	protected function parseLabels(XTemplate $xtpl){
-
-		$xtpl->assign("legend",  $this->localize( "balanceMes.legend" ) );
-
-
+	public function getUicriteriaClazz(){
+		return get_class( new UIMovimientoCuentaCriteria() );
 	}
 
 	protected function parseXTemplate(XTemplate $xtpl){
 
-		/*labels*/
-		$this->parseLabels($xtpl);
+		$xtpl->assign("legend_operaciones", $this->localize("grid.operaciones") );
+		$xtpl->assign("legend_resultados", $this->localize("grid.resultados") );
 
 
 	}
@@ -56,22 +52,7 @@ class BalanceMes extends CiprianoPage{
 	}
 
 
-	public function getFecha()
-	{
-	    return $this->fecha;
-	}
 
-	public function setFecha($fecha)
-	{
-	    $this->fecha = $fecha;
-	}
-
-		public function setStrFecha($strFecha){
-		if( !empty($strFecha) ){
-			$fecha = CiprianoUIUtils::newDateTime($strFecha) ;
-			$this->setFecha($fecha);
-		}
-	}
 
 }
 ?>

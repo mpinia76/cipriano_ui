@@ -9,6 +9,8 @@ use Cipriano\UI\service\UIServiceFactory;
 use Rasty\utils\RastyUtils;
 use Cipriano\Core\criteria\MovimientoCuentaCriteria;
 
+use Datetime;
+
 /**
  * Representa un criterio de búsqueda
  * para movimientos de cuenta.
@@ -37,6 +39,8 @@ class UIMovimientoCuentaCriteria extends UICiprianoCriteria{
         $cuenta = UIServiceFactory::getUICuentaService()->get($cuentaOid);
         $this->setCuenta($cuenta);
 
+        /*$fecha = new DateTime();
+        $this->setFecha($fecha);*/
 	}
 
 	protected function newCoreCriteria(){
