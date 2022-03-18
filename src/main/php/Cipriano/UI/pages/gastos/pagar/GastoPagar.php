@@ -100,6 +100,9 @@ class GastoPagar extends CiprianoPage{
             $xtpl->assign( "linkPagarBAPRO", $this->getLinkActionPagarGasto($this->getGasto(), CiprianoUtils::getCuentaOtra(), $this->getBackTo()) );
             $xtpl->assign("lbl_bapro",'Otra');
             $xtpl->parse("main.forma_pago_bapro");
+			$xtpl->assign( "linkPagarBAPRO", $this->getLinkActionPagarGasto($this->getGasto(), CiprianoUtils::getCuentaViajes(), $this->getBackTo()) );
+			$xtpl->assign("lbl_bapro",'Viajes');
+			$xtpl->parse("main.forma_pago_bapro");
 		}
 
 
